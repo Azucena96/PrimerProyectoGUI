@@ -37,6 +37,9 @@ public class Bienvenido extends javax.swing.JFrame {
         botonSumar = new javax.swing.JButton();
         etiquetaResultado = new javax.swing.JLabel();
         campoResultado = new javax.swing.JTextField();
+        botonRestar = new javax.swing.JButton();
+        botonMultiplicar = new javax.swing.JButton();
+        botonDividir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bienvenidos");
@@ -57,6 +60,27 @@ public class Bienvenido extends javax.swing.JFrame {
         campoResultado.setEditable(false);
         campoResultado.setFocusable(false);
 
+        botonRestar.setText("Restar");
+        botonRestar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonRestarActionPerformed(evt);
+            }
+        });
+
+        botonMultiplicar.setText("Multiplicar");
+        botonMultiplicar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonMultiplicarActionPerformed(evt);
+            }
+        });
+
+        botonDividir.setText("Dividir");
+        botonDividir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonDividirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -64,7 +88,14 @@ public class Bienvenido extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(botonSumar)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(botonSumar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(botonRestar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(botonMultiplicar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(botonDividir))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(etiquetaResultado)
@@ -78,7 +109,7 @@ public class Bienvenido extends javax.swing.JFrame {
                             .addComponent(campoNumero2, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
                             .addComponent(campoNumero1)
                             .addComponent(campoResultado))))
-                .addContainerGap(170, Short.MAX_VALUE))
+                .addContainerGap(104, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -92,7 +123,11 @@ public class Bienvenido extends javax.swing.JFrame {
                     .addComponent(etiquetaSegundoNumero)
                     .addComponent(campoNumero2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(botonSumar)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botonSumar)
+                    .addComponent(botonRestar)
+                    .addComponent(botonMultiplicar)
+                    .addComponent(botonDividir))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(etiquetaResultado)
@@ -115,6 +150,45 @@ public class Bienvenido extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Sólo se admiten números");
         }
     }//GEN-LAST:event_botonSumarActionPerformed
+
+    private void botonRestarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRestarActionPerformed
+       String texto1 = campoNumero1.getText();
+        try {
+            int num1 = Integer.parseInt(texto1);
+            int num2 = Integer.parseInt(campoNumero2.getText());
+            int resultado = num1 - num2;
+            String textoResultado = Integer.toString(resultado);
+            campoResultado.setText(textoResultado);
+        } catch(NumberFormatException nfe ) {
+            JOptionPane.showMessageDialog(this, "Sólo se admiten números");
+        }
+    }//GEN-LAST:event_botonRestarActionPerformed
+
+    private void botonMultiplicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMultiplicarActionPerformed
+       String texto1 = campoNumero1.getText();
+        try {
+            int num1 = Integer.parseInt(texto1);
+            int num2 = Integer.parseInt(campoNumero2.getText());
+            int resultado = num1 * num2;
+            String textoResultado = Integer.toString(resultado);
+            campoResultado.setText(textoResultado);
+        } catch(NumberFormatException nfe ) {
+            JOptionPane.showMessageDialog(this, "Sólo se admiten números");
+        } 
+    }//GEN-LAST:event_botonMultiplicarActionPerformed
+
+    private void botonDividirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonDividirActionPerformed
+        String texto1 = campoNumero1.getText();
+        try {
+            int num1 = Integer.parseInt(texto1);
+            int num2 = Integer.parseInt(campoNumero2.getText());
+            int resultado = num1 / num2;
+            String textoResultado = Integer.toString(resultado);
+            campoResultado.setText(textoResultado);
+        } catch(NumberFormatException nfe ) {
+            JOptionPane.showMessageDialog(this, "Sólo se admiten números");
+        }
+    }//GEN-LAST:event_botonDividirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -152,6 +226,9 @@ public class Bienvenido extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonDividir;
+    private javax.swing.JButton botonMultiplicar;
+    private javax.swing.JButton botonRestar;
     private javax.swing.JButton botonSumar;
     private javax.swing.JTextField campoNumero1;
     private javax.swing.JTextField campoNumero2;
