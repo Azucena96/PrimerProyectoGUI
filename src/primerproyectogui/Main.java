@@ -9,7 +9,7 @@ import gui.Bienvenido;
 
 /**
  *
- * @author JorgeLuis
+ * @author azucena Roquis
  */
 public class Main {
 
